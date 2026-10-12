@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kankunala Yamini | Python Django Developer</title>
+<meta name="description" content="Portfolio of Kankunala Yamini, a fresher Python and Django developer. Django web apps, REST APIs and a machine learning project.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230f766e%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 font-family=%27sans-serif%27 font-weight=%27700%27 text-anchor=%27middle%27 fill=%27white%27%3EY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div id="bar"></div>
+<div class="top"><div class="wrap">
+<nav><b>Kankunala Yamini</b><button class="menu" id="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button><div id="links"><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+</div></div>
+<div class="heroBg"><div class="blob b1"></div><div class="blob b2"></div>
+<div class="wrap">
+<header class="hero">
+<div class="in">
+<h1>Python Django developer who builds working web apps and APIs.</h1>
+<p>Fresher, B.Tech 2026. I have built and deployed four projects, including Django web apps, a healthcare REST API and a machine learning risk scoring app, and I am now learning to build AI agents.</p>
+<div class="type">I build <span id="t"></span><i class="caret"></i></div>
+<div class="btns"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="{% url 'resume' %}">Download resume</a></div>
+</div>
+<pre aria-label="Profile summary as JSON"><span class="k">GET</span> /api/profile/
+
+{
+  <span class="k">"name"</span>: <span class="s">"Kankunala Yamini"</span>,
+  <span class="k">"role"</span>: <span class="s">"Backend / Full-stack (fresher)"</span>,
+  <span class="k">"stack"</span>: [<span class="s">"Python"</span>, <span class="s">"Django"</span>,
+            <span class="s">"REST API"</span>, <span class="s">"MySQL"</span>],
+  <span class="k">"deployed"</span>: <span class="s">4</span>,
+  <span class="k">"learning"</span>: <span class="s">"AI agents"</span>,
+  <span class="k">"open_to_work"</span>: <span class="s">true</span>
+}</pre>
+</header>
+</div></div>
+
+<section id="projects"><div class="wrap">
+<h2>Projects</h2>
+{% for p in projects %}
+<article class="proj">
+<div><h3>{{ p.title }}</h3><small>{{ p.status }}</small></div>
+<div>
+<dl>
+<dt>Problem</dt><dd>{{ p.problem }}</dd>
+{% if p.why %}<dt>Why we built it</dt><dd>{{ p.why }}</dd>{% endif %}
+<dt>What I built</dt><dd>{{ p.built }}</dd>
+<dt>My role</dt><dd>{{ p.role }}</dd>
+</dl>
+<div class="tags">{% for t in p.tag_list %}<span>{{ t }}</span>{% endfor %}</div>
+<div class="links">{% if p.live_url %}<a href="{{ p.live_url }}" target="_blank" rel="noopener">Live demo</a>{% endif %}{% if p.code_url %}<a href="{{ p.code_url }}" target="_blank" rel="noopener">GitHub</a>{% endif %}</div>
+</div>
+</article>
+{% empty %}<p>Run <code>python manage.py seed_projects</code> to load projects.</p>
+{% endfor %}
+</div></section>
+
+<section id="skills"><div class="wrap">
+<h2>Skills</h2>
+<div class="skills">
+<div><h3>Backend</h3><p>Python, Django, REST API</p></div>
+<div><h3>Database</h3><p>MySQL</p></div>
+<div><h3>Frontend</h3><p>HTML, CSS, JavaScript (basics), Bootstrap</p></div>
+<div><h3>AI tools</h3><p>ChatGPT, Claude, Gemini, Copilot</p></div>
+<div><h3>Learning now</h3><p>Building AI agents</p></div>
+<div><h3>Tools</h3><p>Git, GitHub, Vercel</p></div>
+</div>
+</div></section>
+
+<section id="about"><div class="wrap">
+<h2>About and education</h2>
+<div class="two">
+<div>
+<p>I like building things that run live, not just on my laptop, so every project I finish is deployed and ready to test. I enjoy backend work with Django and REST APIs, and I am now learning to build AI agents. Next, I want to join a team where I can build real products and grow as a backend developer.</p>
+</div>
+<div>
+<h3>Education</h3>
+<p>B.Tech, Ashoka Women's Engineering College. Graduated 2026.</p>
+</div>
+</div>
+</div></section>
+ 
+<section id="contact"><div class="wrap">
+<h2>Contact</h2>
+<div class="contact-grid">
+<div class="cinfo">
+<p>I am open to fresher roles in Python and Django development. Send me a message and I will reply by email.</p>
+<ul>
+<li><b>Email</b><a href="mailto:kankunalayamini29@gmail.com">kankunalayamini29@gmail.com</a></li>
+<li><b>WhatsApp</b><a href="https://wa.me/919100466252" target="_blank" rel="noopener">+91 9100466252</a></li>
+<li><b>LinkedIn</b><a href="https://www.linkedin.com/in/kankunala-yamini" target="_blank" rel="noopener">kankunala-yamini</a></li>
+<li><b>GitHub</b><a href="https://github.com/kankunalayamini-hub" target="_blank" rel="noopener">kankunalayamini-hub</a></li>
+</ul>
+</div>
+<div>
+{% for m in messages %}<div class="msg {{ m.tags }}">{{ m }}</div>{% endfor %}
+
+<form class="cf" method="post" action="{% url 'contact' %}">{% csrf_token %}
+<input name="name" placeholder="Your name" required maxlength="100">
+<input name="email" type="email" placeholder="Your email" required>
+<textarea name="message" rows="5" placeholder="Your message" required></textarea>
+<button class="btn main" type="submit">Send</button>
+</form>
+</div>
+</div>
+</div></section>
+
+<footer><div class="wrap">
+<h2>Let's talk</h2>
+<p>I am looking for a fresher role in Python, Django or backend development.</p>
+<div class="btns"><a class="btn main" href="mailto:kankunalayamini29@gmail.com">kankunalayamini29@gmail.com</a><a class="btn" href="https://wa.me/919100466252" target="_blank" rel="noopener">WhatsApp +91 9100466252</a><a class="btn" href="https://www.linkedin.com/in/kankunala-yamini" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/kankunalayamini-hub" target="_blank" rel="noopener">GitHub</a></div>
+
+</div></footer>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
