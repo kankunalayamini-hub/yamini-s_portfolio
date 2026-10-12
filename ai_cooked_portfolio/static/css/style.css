@@ -116,3 +116,11 @@ footer h2{font-size:26px}
 .cf input,.cf textarea{width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
 .cf input:focus,.cf textarea:focus{border-color:var(--accent);outline:none}
 .cf button{justify-self:center;cursor:pointer;font:inherit;font-weight:500}
+/* mobile fixes for contact */
+@media(max-width:760px){
+.contact-grid{grid-template-columns:1fr;gap:24px}
+.cinfo p{max-width:none}
+.cinfo a{word-break:normal;overflow-wrap:anywhere}
+.cf{padding:16px}
+.cf button{width:100%}
+}
